@@ -1,0 +1,1046 @@
+O Print é usado em Python quando eu quero exibir informações, textos ou valores de variáveis no console (tela) para o usuário. Ela é a principal forma de saída de dados, permitindo que o usuário visualize o resultado do código. Geralmente o print funciona assim print(). Abrindo e fechando parenteses.
+
+
+Quando queremos representar textos ou palavras nas linhas de código, eles são chamados de string.
+
+
+O Código não reconhece quando somamos uma string com um numero, pois o numero é diferente de uma string, ele tem valor numérico. Porém, tem como fazer isso se deixar ele em formato de string.
+
+
+VARIAVEIS: Conceito basico da programação, em python, é onde eu posso guardar informações dentro de um item. É como se eu guardasse essa informação dentro de uma caixa, e depois eu pegasse essa informação pra usar depois como eu quiser, ex:
+
+caixa1 = banana;
+
+caixa2 = laranja;
+
+Depois que eu declarei essas variaveis, eu posso usar elas futuramente no meu código.
+
+Lembrando que as variaveis também tem um padrao de escrita comum na programação que é utilizando _ . Ou seja:
+
+caixa_branca_pesada1 = "garragas de vidro"
+caixa_branca_pesada2 = "garrafas plasticas"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Aplicação de método e manipulação de strings 
+
+
+Quando for aplicar algum método em uma string em python, é importante fazer o seguinte: texto.(a partir do ponto vai surgir algo que vai transformar totalmente essa variavel, segue mais para o exemplo). (Apenas um adendo, mas métodos geralmente possuem os parenteses na frente, como por exemplo o próprio print()).
+
+
+print(text.lower()) = Isso vai transformar todas as letras escritas no texto como minúsculas.
+
+print(text.upper()) = Isso vai transformar todas as letras escritas no texto como maiúsculas.
+
+print(text.strip()) = Isso vai remover todos os espaços extras que tem tanto no inicio de uma frase como no final, exemplo : "   Hoje tem mengão   " agora com strip, vai ser "Hoje tem mengão".
+
+print(text.replace()) = Isso vai substituir um elemento por outro que você desejar, exemplo : 
+
+"Hoje   tem mengão"
+
+print(text.replace("   ", " "))
+
+"Hoje tem mengão"
+
+Existe uma forma também, de aplicar todos os métodos de uma vez só e alterar a frase inteira. Exemplo abaixo:
+
+print(texto.strip().upper().replace("   ", " "))
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+RECEBENDO DADOS DO USUÁRIO COM INPUT
+
+
+O input serve para receber dados do usuário, e é usado igual o print. Exemplo:
+
+input()
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+USO DE VARIAVEIS
+
+print("A pessoa se chama nome e tem idade anos de idade")
+
+Quando eu chamo esse print para a tela, o log vai retornar exatamente isso que eu escrevi, porque é um texto, afinal está entre as aspas duplas (ou simples). O correto a ser feito então, é chamar a variavel de forma correta, que em python é da seguinte maneira:
+
+print(f"A pessoa se chama {nome} e tem {idade} anos de idade")
+
+O "f" serviu para sinalizar a linha do código que ali vai ser trabalho com uma variavel, e o abre e fecha chaves é onde eu sinalizo o que é uma variavel.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+****ESTRUTURAS CONDICIONAIS****
+
+Basicamente é o if e else. Essas duas formas eu já vi em javascript e a lógica é basicamente a mesma. 
+
+if idade>18:
+  print(f"O {nome} pode entrar na festa, pois ele é maior de idade")
+  print(f"Ele tem {idade} anos de idade.")
+else:
+  print(f"O {nome} NÃO pode entrar na festa, pois ele é menor de idade")
+  print(f"Ele tem apenas {idade} anos de idade.")
+
+  Então só recapitulando, antes de inserir o numero da idade, eu transformo ele em númerico ao invés de ser uma string quando eu recebo o input da pessoa que digitou, ou seja, eu faço isso:
+
+  idade = int(input("Digite a sua idade: "))         = eu coloco esse int antes do input, assim, eu já vou sinalizar que o resultado desse input vai ser um número.
+
+  Uma coisa que eu devo me atentar, e que eu até reparei no teste que eu fiz antes que o professor explicasse, é que quando eu coloco 18 anos a resposta é errada, porque o código entende que o resultado vai ser apenas MAIOR e não igual a 18. O jeito mais fácil de resolver isso, é digitando um sinal de igual ao lado do sinal de maior, assim no exemplo seguinte:
+
+  if idade>=18:
+  print(f"O {nome} pode entrar na festa, pois ele é maior de idade")
+  print(f"Ele tem {idade} anos de idade.")
+else:
+  print(f"O {nome} NÃO pode entrar na festa, pois ele é menor de idade")
+  print(f"Ele tem apenas {idade} anos de idade.")
+
+
+
+
+
+AGORA, OUTRO EXEMPLO, esse exemplo envolve médias escolares:
+
+media = float(input("Digite a sua media: "))
+
+if media>=7.0:
+  print("Aprovado!")
+elif media>=5.0:
+  print("Recuperação!")
+else:
+  print("Reprovado!")
+
+
+  o que da pra obvservar nesse exemplo, é que ao invés de usar o valor int, eu usei float, pois geralmente os números que vão ser recebidos, vai ser geralmente um 6.2 por exemplo, então são números flutuantes.
+
+  Como nesse exemplo tem mais de duas condições, e são três, eu usei o valor ELIF, e que é diferente do que é no Javascript, onde é else if aqui é ELIF.
+
+
+
+
+  AQUI AGORA, um caso bem diferente do que eu já vi antes em exercícios que o professor me passou, ele é o seguinte:
+
+  media = float(input("Digite a sua media: "))
+
+if media<5.0:
+  print("Reprovado!")
+elif media>=5.0: 
+  print("Recuperação!")
+else:
+  print("Aprovado!")
+
+  Esse caso foi feito ao contrário, ao invés de começar do maior para o menor, começa do menor para o maior, e o programa se confunde ali na linha do ELIF, pois como você digita um valor maior do que 5, o programa entende automaticamente que você já entra de recuperação, não havendo necessidade de processar a sua informação no else, que daria a sua resposta de aprovado, porém, no exemplo a seguir o professor do curso mostrou uma pequena condição que se chama "and", onde eu posso colocar meio que um "Limite" para que o resultado não vase do elif para o else. Então, o end que ele colocou falou "Se a sua média for maior que 5, e (and) menor que 7, você vai entrar em recuperação." Basicamente é isso, muito útil!
+
+
+if media<5.0:
+  print("Reprovado!")
+elif media>=5.0 and media < 7.0: 
+  print("Recuperação!")
+else:
+  print("Aprovado!")
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+  Conectar IA do Google com Python no colab
+
+
+Como rodar o Gemini no colab: 
+
+1º passo: API KEY (precisa dessa chave para poder conectar os dois)
+
+2º passo: Entrar no google ia studio
+
+3° passo: Clicar no Get API key
+
+4º passo: Clicar em criar chave da API
+
+5º passo: Escolher algum projeto (pode ser qualquer um do google cloud)
+
+6º passo: Copiar a chave de API que foi criada
+
+7º passo: Quando copiado a chave de API e voltar para a tela do colab, lá vai ter uma chave para guardar as senhas (provavelmente senhas como essa de API's), é para clicar nela
+
+8º passo: Na tela "Secrets", clicar em "adicionar novo secret".
+
+9º passo: Colocar o nome da chave e depois a própria chave de API que anteriormente eu copiei e colei. Depois é só ligar.
+
+10° passo: Depois que eu já fiz esse procedimento todo, eu vou precisar importar a IA para o meu código em python, e o próprio colab já gera o código para importar a i.a no meu código, é só copiar e colar. Em secret name, basta substituir pelo nome da minha chave que eu criei.
+
+11º passo: Falta pouco, mas ainda não acabou, essa variável que o google vai gerar pra mim, deve se tornar o ambiente do meu código, para isso, eu vou precisar fazer o seguinte:
+
+from google.colab import userdata
+userdata.get('GEMINI_API_KEY_2')
+
+O código vai estar escrito exatamente assim, então, eu vou precisar fazer uma alteração, eu vou importar o meu sistema operacional, então agora, vai ficar assim:
+
+import os
+from google.colab import userdata
+
+os.environ["GOOGLE_API_KEY"] = userdata.get('GEMINI_API_KEY_2')
+
+12º passo: Certo, agora o ambiente já está todo configurado para receber importações do google, e agora, vamos importar o gemini. Para fazer isso, tem que digitar o seguinte:
+
+from google import genai 
+
+client = genai.Client()
+
+13º passo: Chegando nos passos finais, agora tem que criar uma nova linha de código e digitar:
+
+client.models.generate_content()
+
+Esse método pede dois parametros, o modelo que vai ser usado do gemini (que você pode observar no próprio site do google AI studio, onde ele mostra todas as versões disponíveis clicando em studio>ali ja vai aparecer as opções que vai ter do gemini), o modelo do gemini usado no video do curso é o 2.5 flash. Depois vai precisar enviar duas palavras chaves, e elas são:
+
+client.models.generate_content(model="gemini-2.5-flash", contents="O que é a Inteligência Artificial?") 
+
+Isso que eu acabei de fazer, é gerar uma resposta da IA, e ela gera essa resposta porém com alguns detalhes quando ela exibe, esse detalhe é algumas linhas de código que não são necessárias. Então agora, vamos criar uma variavel para guardar esse comando todo que eu dei para a IA.
+
+resposta = client.models.generate_content(model="gemini-2.5-flash", contents="O que é a Inteligência Artificial?") "Clico no play"
+
+fazendo isso eu gravo a resposta da IA na minha variavel resposta. E aí depois, eu dou um print assim:
+
+print(resposta.text)                                  (esse text foi necessário para informar que eu quero somente o texto, e não outras coisas que a ia gera automaticamente)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Conceito de LOOPS
+
+
+Loops é um conceito em programação que eu fracassei miseravelmente quando estava aprendendo javascript, mas básicamente é um item se repetir várias vezes, como por exemplo, eu quero repetir o numero 5 varias vezes, então vou criar um laço de repetição até chegar no resultado que eu estou buscando.
+
+While = provavelmente quando se fala em loops, é o conceito mais conhecido. Ele significa "enquanto", bem parecido com as estruturas condicionais.
+
+n = 1
+
+while n <= 10:
+    print("*")
+    n = n + 1
+
+*
+*
+*
+*
+*
+*
+*
+*
+*
+
+Acima então básicamente, eu criei um loop. Eu primeiro crio uma váriavel para conter o item que vai ser repetido várias vezes, que no caso vai ser o número 1. Depois eu aplico o conceito do while, dizendo que enquanto a minha variavel for menor ou igual a 10, ela vai se repetir até chegar nesse resultado. Mas para ela se repetir até chegar no resultado, e encerrar o loop, eu preciso daquele elemento que eu utilizei ali "   n = n + 1   ", esse elemento serve para informar ao loop que já está na hora dele parar, se não tiver esse contador, o meu loop vai ser infinito e posso travar o meu navegador ou o meu notebook.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Entendendo a interação dinâmica com chatbots e o histórico de mensagens
+
+No vídeo, o professor está explicando que a principio, vamos entender como funciona a dinamica com os chatbots, e essa dinamica consiste em usar o client, porém, não vamos usar o models (É o componente que dá acesso ao "estoque" ou lista de todos os modelos de IA disponíveis na plataforma do provedor (como o Google).) e sim o chats (Ele cria um canal contínuo entre você e a IA, permitindo que o diálogo flua como em um aplicativo de mensagens (WhatsApp ou Telegram).)
+
+chat = client.chats.create(model="gemini-2.5-flash")
+
+Então, no começo ali dessa linha de código, eu criei uma váriavel para armazenar o meu chatbot. E, diferente da outra interação que eu tive com IA, no caso essa:
+
+resposta = client.models.generate_content(model="gemini-2.5-flash", contents="O que é a Inteligência Artificial?")
+
+Eu não precisei colocar o contents, porque a minha conversa já vai ser gerada com a própria IA que está sendo fornecida para mim? Dando um exemplo mais fácil para mim entender futuramente caso esqueça, é como se no primeiro exemplo, eu já defini o que a IA iria me responder, e no segundo exemplo, eu vou trabalhar uma conversa com a IA, tendo uma interação mais ativa.
+
+Continuando o exemplo do professor, abre uma nova linha de código e digita o seguinte:
+
+resposta = chat.send_message("O que é a Inteligência Artificial?")
+
+Então novamente, eu faço a pergunta para a IA, porém, essa pergunta vai ficar armazenada com ela e eu vou poder conversar com ela a respeito disso. A resposta vai ficar gravada na váriavel de mesmo nome, resposta. Depois eu vou dar um play e armazenar a resposta dentro da minha variavel, e aí sim eu posso dar o print.
+
+print(resposta.text)
+
+CURIOSIDADE****************************************************************************************************
+
+chat.get_history()   =  Ele me trás o histórico de toda a interação que eu tive com a IA ao longo do meu código.
+
+
+***************************************************************************************************************
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+COMO CRIAR UM CHATBOT COM PYTHON E A IA GEMINI
+
+
+
+prompt = input("Digite a sua pergunta: ")
+
+while prompt != "fim":
+  resposta = chat.send_message(prompt)
+  print(resposta.text)
+  print("\n")
+  prompt = input("Digite a sua pergunta: ")
+
+
+
+Então aqui nessa linha de código, eu criei o meu chat bot. É uma linha curta, porém já da pra ver o quanto é interessante a IA trabalhando ativamente me respondendo a qualquer pergunta que eu faça a ela. Mas, vou destrinchar cada detalhe desse código.
+
+ali na linha do "   prompt = input("Digite a sua pergunta: ")   "   eu crio uma váriavel para receber a pergunta do usuário através de um input.
+
+
+Na linha do while   "     while prompt != "fim":      "     eu crio a minha váriavel de repetição, então eu declaro que a condição do meu while é que, se a minha váriavel prompt (que recebe a pergunta do usuário) for diferente de fim, ela vai continuar repetindo interminavelmente.
+
+
+Agora na linha da resposta, eu declaro está variavel, resposta, para que a IA (chat.send_message) receba a minha váriavel prompt e gere a resposta. E a resposta vai ficar armazenada dentro dessa resposta.
+
+
+Na linha       "    print(resposta.text)    "   eu declaro um print para processar a minha váriavel resposta.
+
+Aqui nesta linha é apenas uma curiosidade, onde o professor escreve     "   print("\n")   "   isso serve para quebrar uma linha entre o espaço dos elementos que são exibidos na tela, assim ficando mais harmonico.
+
+Essa linha é a mais interessante    "   prompt = input("Digite a sua pergunta: ")   "   O professor explicou antes quando estava falando do while e os loops de repetição, que precisamos dar um sinal, um contador, para o nosso loop parar, se não ele vai ficar para sempre gerando respostas. Então, o nosso contador é o prompt, a mesma váriavel que eu criei no inicio do chat bot. E agora, o chat bot vai sempre me fazer uma pergunta, e quando eu digitar a palavra "fim" ele vai parar.
+
+Com isso, eu consigo concluir que o while é como se fosse uma engrenagem, onde cada parte vai virar outra engrenagem, até que elas parem de funcionar ao mesmo tempo quando a máquina desligar.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ESTRUTURAS DE DADOS
+
+
+Basicamente, para criar listas com itens no python é só digitar como se fosse uma váriavel, e depois do sinal de igual, digitar os colchetes para englobar os itens, exemplo:
+
+lista_de_nomes : [João, Maria, Leonardo, Pedro, Larissa]
+
+Algo interessante para falar sobre as listas, é que quando você vai selecionar um item da lista, você não conta inicialmente pelo número 1, e sim pelo 0. O Python identifica sempre que a contagem começa pelo número 0 e não pelo 1.
+
+Se eu quiser selecionar um item da lista para exibir na tela, eu digito:
+
+print(lista_de_nomes[1])  =   No caso, eu selecionei a Maria.
+
+DESAFIO PROPOSTO PELO professor  (FIZ ERRADO!!)
+
+lista_de_medias = [8.7, 5.4, 4.0, 2.1, 9.5]
+
+n = 0
+
+while n < 5:
+    if lista_de_medias[n] < 10:
+        lista_de_medias[n] = lista_de_medias[n] + 1
+    
+    n = n + 1
+
+print(lista_de_medias)
+
+O desafio proposto, era somar o número 1 a cada item da lista, e também o número não pode passar de 10. Então o primeiro passo foi definir as váriaveis. Depois, foi necessário um ponteiro, para indicar para o meu loop que a lista vai começar pelo primeiro item dela, no caso o 0.
+
+Eu digito a minha condição do loop onde, enquanto o n (meu ponteiro) for menor que o número de alunos na lista, o loop continua. Quando o n atinge esse número, ele para.
+
+
+EXERCICIO CORRIGIDO 
+
+n = 0
+
+while n < 5:
+  lista_de_medias[n] = lista_de_medias[n] + 1.0
+  if lista_de_medias[n] > 10.0:
+     lista_de_medias [n] = 10.0
+     
+  n = n + 1
+
+print(lista_de_medias)
+
+
+Certo, aqui nesse exercício eu corrigi junto ao vídeo do professor, e fui me inteirando de alguns detalhes, eu realmente não entendo muito bem o loop while mas to tentando aprender essa coisa.
+
+o começo é padrao, ele cria o contador. Depois o while com n menor que 5 (temos 5 itens na nossa lista) e eu informo que enquanto n for menor que 5 ele não é encerrado.
+
+Depois, eu declaro que a minha variavel da lista de medias vai receber +1 para cada item que circular (foi por isso que eu coloquei o n entre colchetes. para sinalizar que enquanto estiver percorrendo a lista cada item vai receber +1)
+
+aí eu declaro o meu if, dizendo que se uma nota for maior que 10, ela vai ser 10.
+
+E depois sigo normal.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Função LEN    palavra em ingles derivada de length, que quer dizer o tamanho de algo ou comprimento
+
+
+Básicamente, nos exercicios anteriores envolvendo listas, essa função iria servir para ajudar a descobrir quantos elementos existem dentro de uma determinada lista. Por exemplo, a lista que foi criada logo ali em cima tem 5 elementos, mas se tivesse por exemplo uns 30.. iria ficar dificil saber quantos tem exatamente. 
+
+Ao invés de por exemplo, usar o número 5 para representar os elementos da lista, eu poderia usar o len(lista_de_medias). Onde ele já iria representar todos os meus elementos da minha lista.
+
+Existe uma forma também de resolver do menor para o maior item da lista, e fica algo desse jeito:   lista_de_medias[len(lista_de_medias) - 1]
+
+Dessa forma a lista iria começar ao contrario.
+
+Existe uma maneira até mais fácil de fazer isso, sendo ela: lista_de_medias[-1] , com isso já seria necessário para começar pelo ultimo item da lista.
+
+
+Outra forma interessante de manipular as listas é selecionando uma certa parte que eu desejo dela, exemplo:
+
+lista_de_nomes : [Maria, João, Ana, Pedro, Juliana]
+
+
+lista_de_nomes[1:3]
+
+João, Ana   
+
+Básicamente o que ocorreu aqui foi que, o 1 como já é de meu conhecimento, é como se fosse o número 2 da lista. Porém, o número três não quer dizer necessariamente que seja o item 3, e sim um item anterior ao três, ou seja, ao invés de ser o Pedro pela lógica, na verdade é a Ana.
+
+
+Se eu colocar, por exemplo:   lista_de_nomes[1:]      , isso vai fazer com que a lista puxe todos os itens para a frente do número 1.
+
+
+Da para aplicar a mesma lógica só que ao contrário, ou seja:          lista_de_nomes[:3] 
+
+
+
+Agora, o professor está mostrando uma forma de adicionar um item na lista, da seguinte forma:
+
+lista_de_nomes.append(Fábio)
+
+Ou seja, agora não vão mais ser 5 nomes apenas, mas sim 6 nomes.
+
+Uma curiosidade é de que o append só pode incluir apenas um elemento por vez, ou seja, um nome na minha lista. Para resolver isso, existe o metodo extend, que funciona da seguinte forma:
+
+lista_de_nomes.extend("Joana Da Silva, Paulo Silveira")     =    se tentar rodar, provavelmente vai dar erro, porque isso são dois elementos e não um só, para transformar em itens de lista, é necessário fazer o seguinte:
+
+lista_de_nomes.extend(["Joana Da Silva" , "Paulo Silveira"])   =    Dessa forma vai ser incluido estas duas pessoas na criação da lista.
+
+O professor explicou a diferença entre o append e o extend. Enquanto o extend entende que você vai adicionar itens a sua lista e apenas somar os itens a ela. O append vai literalmente colocar o item lista (no caso a lista inteira) dentro da sua lista. Essa é a diferença entre as duas coisas.
+
+TAMBÉM para remover itens de uma lista, existe o método remove. 
+
+Funciona basicamente assim como os outros, a lógica é a mesma.    lista_de_nomes.remove("Joana Da Silva").     Dessa forma, ele vai remover esse item da minha lista, e detalhe, se tiver outro item semelhante (outra Joana da Silva), ele vai remover apenas o primeiro elemento e não todos eles.
+
+Mas o remove seria apenas para um item muito em específico, como o caso da Joana que eu tive que digitar o seu nome para ela ser excluida. Para remover um item que eu coloque a sua posição da lista por exemplo, eu devo digitar o seguinte:
+
+lista_de_nomes.pop()      =   Se eu rodar o pop sozinho como ele está agora, ele remove o último elemento por padrão da minha lista.
+
+Eu posso também fazer a posição específica do pop, por exemplo:
+
+
+[Maria, João, Ana, Pedro, Juliana]
+
+lista_de_nomes.pop(2)
+print(lista_de_nomes)
+
+Nesse caso, vai ser removido a Ana da minha lista, já que ela representa o elemento número 2.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Os dicionários servem para dar um novo significado as listas. Elas vão dar uma "chave" e um valor para os itens que estou trabalhando, assim como a lógica do dicionário também. Ou seja      =       sempre vai ter uma "chave" e depois o valor da chave.
+
+
+dict_de_nomes_e_media = {}      = sempre vai ser representado dessa maneira, com chaves ao invés de colchetes.
+
+
+dict_de_nomes_e_medias = {"Ana Silva":8.7,
+                         "Bruno Oliveira":5.4,
+                         "Carla Souza":4.0,                     =     assim ficou o meu dicionário, bem informativo e descritivo.
+                         "Diego Santos":2.1,
+                         "Elena Pereira":9.5}
+
+
+
+dict_de_nomes_e_medias ["Ana Silva"]
+8.7                                                            = O próprio programa puxou o valor de 
+                                                               8.7, para isso eu tenho que abrir colchetes ao invés de chaves (os colchetes servem para sinalizar posição de um item dentro de uma lista) 
+
+
+
+Ele explicou que tem como aplicar os métodos nos dicionários assim como nas listas também, por exemplo:
+
+dict_de_nomes_e_medias.pop          =   vai trazer todos os itens do dicionário menos o último
+
+dict_de_nomes_e_media.value         =   vai trazer apenas os valores do dicionário como o 8.7 (a nota da Ana SIlva por exemplo)
+
+e por aí vai..
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Desafio: Usar dicionários de forma que as chaves sejam "Nome" e "Média", e os valores sejam os nomes e médias dos alunos
+
+Meu código que consegui fazer com ajuda da IA.
+
+alunos = {
+    "nome": ["Ana Silva", "Bruno Oliveira", "Carla Souza", "Diego Santos", "Elena Pereira"],
+    "media": [8.7, 5.4, 4.0, 2.1, 9.5]
+}
+
+Esse agora foi o código do profesor:
+
+dict_desafio = [
+    {"nome": "Ana Silva", "media": 8.7},
+    {"nome": "Bruno Oliveira", "media": 5.4},
+    {"nome": "Carla Souza", "media": 4.0},
+    {"nome": "Diego Santos", "media": 2.1},
+    {"nome": "Elena Pereira", "media": 9.5}
+]
+
+então neste código, ele fez uma lista de dicionários, onde cada item do dicionária tem as suas informações, ou seja, cada aluno tem a sua particularidade. Não é igual ao código que eu fiz primeiro onde eles estão separados, nessa lista do professor cada item tem todas as suas informações dentro dele mesmo.
+
+Eu estava vendo que para fazer com que o programa me retorne alguma resposta, eu tenho que usar o seguinte:
+
+dict_desafio[0]
+
+pela logica eu vou chamar a minha lista de dicionarios e dentro das chaves eu vou pedir para que ele me mostre o resultado que eu quero, nesse caso eu estou pedindo para ele me trazer o item da posição 0 dessa lista de dicionarios.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Estrutura de repetição, laço: "for"
+
+Então a estrutura de repetição que eu aprendi até hoje, foi a seguinte:
+
+dict_desafio = [
+    {"nome": "Ana Silva", "media": 8.7},
+    {"nome": "Bruno Oliveira", "media": 5.4},
+    {"nome": "Carla Souza", "media": 4.0},
+    {"nome": "Diego Santos", "media": 2.1},
+    {"nome": "Elena Pereira", "media": 9.5}
+]
+
+n = 0
+
+while n < len(dict_desafio):
+      print = (dict_desafio[n])
+      n = n + 1
+
+
+      n = 0
+
+Nesse caso aí eu vou fazer aparecer na tela todos os dicionarios, fazendo com que o loop rode todos. Agora, eu vou aprender a usar o for. Vendo o professor usando o for no programa, eu vi como é ridiculo de fácil, bem mais fácil que o while inclusive. Consiste em:
+
+
+for elemento in dict_desafio:
+    print(elemento)
+
+
+
+foi tão fácil que eu nem precisei olhar a tela para ver como faz, e a estrutura é a seguinte, depois do for eu crio uma váriavel que vai rodar apenas dentro do for, ela vai ser usada apenas para esse loop em especifico qu eu to criando, e o in que vem depois, ele vai direcionar para qual item/variavel eu quero que seja executado esse loop.
+
+O for pode ser usado também para gerar uma sequencia de numeros, de 0 até 4 por exemplo. Funciona assim:
+
+for n in range(5):
+    print(n)
+
+    fazendo isso o programa resulta em diversas linhas com uma contagem de numeros, do 0 até o 4. Inclusive, esse range significa "de a até b" ou "de algo até esse outro algo".
+
+
+Seguindo nesse raciocinio, segue outro exemplo:
+
+for n in range(2, 7):
+    print(n)
+
+    isso que eu fiz, eu defini para o meu range que ele vai começar no item de posição número 2 (ou vai começar no número 2 mesmo) e vai até um elemento (7) antes do elemento que eu coloquei no código. Fica tipo
+
+    2
+    3
+    4
+    5
+    6
+  
+  quando eu coloco mais uma virgula, que nem nesse exemplo:
+
+  for n in range(2, 7, 2):
+    print(n)
+
+    Eu sinalizo que eu quero que o meu loop for pule de dois em dois elementos, iria ficar assim:
+
+    2
+    4
+    6
+
+
+Agora nesse teste que eu to fazendo, eu mandei o meu loop for percorrer um dicionário, porém, quando ele percorre um dicionário, ele lê apenas as chaves, que no caso seriam:
+
+nome = ?
+idade = ?
+altura = ?
+
+Da estrutura padrão dele, ele não vai percorrer os valores, apenas essas chaves que eu botei como exemplo. Para corrigir isso:
+
+for chave,valor in pessoa.items():
+  print(f"A chave é {chave} e o valor {valor}.")
+
+  
+  Então acompanhando a estrutura acima, eu informei dois valores para o meu loop for, sendo eles chave e valor. Depois, eu utilizei um metodo para informar que eu quero que sejam exibidos tanto as chaves tanto os valores do meu dicionário. Depois teve como fazer o uso das variaveis (tinha até esquecido que dava pra usar elas)
+
+Agora, o professor vai ensinar uma operação de resto (o resto da divisão), e ela consiste em:
+
+for n in range(11):
+  if n % 2 == 0:
+    print(n)
+
+Aqui eu digo para o programa o seguinte, o n vai ser de 0 a 10, e de 0 a dez eu digo que se o N for divido por 2 e o resto da divisão dessa operação for igual a 0, ele será par, portanto, vai ser exibido apenas os números pares desse for.
+
+0
+2
+4
+6
+8
+10
+
+A lógica também se aplica, se for de 3 em 3, exemplo:
+
+for n in range(11):
+  if n % 3 == 0:
+    print(n)
+
+  0
+  3
+  6
+  9
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Funções
+
+Ta aqui ja ta meio manjado, mas ainda sim eu tenho que estudar bem esse tópico de funções, segue o exemplo pra explicação:
+
+texto2 = "   mArIA dAs gRaÇaS siLvA   "
+texto3 = "joãO   pEDRO   aLMEIDA     "
+texto4 = "  ANA claudia de oliveira  "
+texto5 = "     carlos eduardo macedo "
+
+
+então aqui já tenho uma estrutura parecida com o começo do curso, onde tem os nomes com espaçamentos incorretos, letras maiores e menores.. enfim.
+
+Ao invés de corrigir um por um, eu posso criar uma função com os métodos necessários para corrigir esses nomes que estão todos bagunçados.
+
+E o nome para criar uma função, é DEF (de definir mesmo). 
+
+
+
+
+def escreve_texto_corretamente(texto):
+
+
+
+
+ou seja, nessa função eu declaro ela normalmente, e entre os parenteses eu dou a minha variavel para a função funcionar, para ela agir!
+
+
+def escreve_texto_corretamente(texto):
+  texto = texto.upper().strip().replace("  ", " ")
+  print(texto)
+
+
+
+  destrinchando ela basicamente, eu fiz a variavel texto receber aqueles valores ali, para formatar os nomes corretamente, eu poderia escrever tambem de outras formas como:
+
+
+
+  def escreve_texto_corretamente(texto):
+  texto_novo = texto.upper().strip().replace("  ", " ")
+  print(texto_novo)
+
+
+  
+def escreve_texto_corretamente(texto):
+  texto = texto.upper().strip().replace("  ", " ")
+  print(texto.upper().strip().replace("  ", " "))
+
+
+aí eu quero que essa váriavel de um print para rodar essas alterações, então eu vou lá e digito o print e dentro dos parenteses eu chamo a variavel texto para ela agir.
+
+pra usar a variavel, eu tenho chamar ela e passar um valor para ela funcionar, exemplo:
+
+escreve_texto_corretamente(texto2)
+
+abaixo vai aparecer o nome corrigido!
+
+tempo video 9:08
+
+
+estava verificando o codigo junto com o professor, e ali no replace ele remove apenas um espaço e não dois, das lacunas que foram feitas, então tem que mudar isso pra ficar correto, ex:             ("  ") remove apenas uma lacuna                 correto seria assim ("   ")       ele vai ensinar a corrigir
+
+
+
+o professor disse que daria pra usar um loop mas não seria tao visualmente agradavel pro codigo, então existe uma função chamada split
+
+essa função split remove todos os espaços possiveis, mesmo entre as palavras ou as lacunas. Ele faz isso porque cria uma mini lista. Ou seja, vão existir itens dentro dessa lista. Fica algo como ['Deivi', 'Junior', 'da', 'alura']
+
+Outro metodo que vai ser mostrado pelo professor é o .join , 
+
+
+def escreve_texto_corretamente(texto):
+  texto_novo = texto.upper()
+  lista_de_palavras = texto_novo.split()
+  print(lista_de_palavras)
+
+  aqui esta o codigo que o professor fez, ele tirou os outros metodos que tinha e deixou apenas o upper, pois o split ja faz a função dos outros dois metodos que estavam no codigo. Na outra ali, lista de palavras ele faz receber esse valor do texto novo com o metodo split.
+
+
+Falando agora sobre o join, ele vai precisar ser utilizado nesse codigo, porque as palavras estao separadas, e o ideal é que sejam exibidas como se fossem uma coisa só. Para isso o join vai precisar de um separador, e esse separador desses itens da lista precisa ser apenas um espaço unico para todos os itens. Então, vai ficar o código dessa forma:
+
+def escreve_texto_corretamente(texto):
+  texto_novo = texto.upper()
+  lista_de_palavras = texto_novo.split()
+  nome_final = " ".join(lista_de_palavras)
+  print(nome_final)
+
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  Simplificando funções
+
+  Basicamente na aula passada o professor criou uma função para realizar a alteração dos textos incorretos. Agora, ele vai ensinar como encurtar essa função. O que tinha 5 linhas agora vai passar a ter apenas 2 linhas.
+
+  def escreve_texto_corretamente_alternativa(texto):
+  print(" ".join(texto.upper().split()))
+
+  O que importa é só entender que da pra simplicar dessa forma. Ele juntou todos os métodos em uma linha só nessa estrutura. Primeiro o join e depois os outros métodos.
+
+
+  Esse tipo de função que eu criei com o professor, foi uma função bem básica na verdade, algo que eu já sabia mas eu entendi que ele só queria mostrar a essencia do codigo. Agora ele vai mostrar funções que realmente retornão algo.
+
+
+  Aqui ele criou a seguinte função:
+
+
+
+salas_de_aula = ["Sala 1", "Sala 2", "Sala 3"]
+
+
+import random 
+
+def aloca_alunos_em_sala(nome_do_aluno, lista_de_salas):
+  sala_do_aluno = random.choice(lista_de_salas)
+  print(sala_do_aluno)
+
+
+
+aloca_alunos_em_sala(texto4, salas_de_aula)
+
+
+resumidamente ele criou a lista com as salas de aula, depois ele importou uma biblioteca que faz randomizar as respostas da função de acordo com o que tu quer. Depois, criou a função e tambem criou as variaveis da função.
+Ele também criou a variavel sala do aluno e deu para ela o valor de randomizar e o metodo de escolher algo na lista de salas. Após isso ele deu um print da variavel sala do aluno e é isso, função pronta.
+
+
+O exemplo não para por aí, o professor queria também corrigir o nome desse aluno que veio errado, e no caso só puxou o nome da sala. Então, segue o código.
+
+import random 
+
+def aloca_alunos_em_sala(nome_do_aluno, lista_de_salas):
+  sala_do_aluno = random.choice(lista_de_salas)
+
+  dict_aluno = {
+      "nome":nome_do_aluno,
+      "sala":sala_do_aluno
+  }
+  
+  print(dict_aluno)
+
+  aloca_alunos_em_sala(texto4, salas_de_aula)
+
+  {'nome': '  ANA claudia de oliveira  ', 'sala': 'Sala 3'}
+
+
+Então no código da de perceber que veio o nome da Aluna errado, e isso não é o que a gente quer, a gente quer que esse nome venha corrigido.
+
+Agora que vem o pulo do gato que eu não tinha entendido, o professor tinha usado uma palavra chave chamada return em uma função anterior que ele fez. Só que ao invés dessa função printar alguma coisa na tela, ela vai retornar esse valor para outra função, que no caso é o que a gente ta fazendo agora. A função que eu me refiro ser a antiga é essa aqui:
+
+
+def escreve_texto_corretamente(texto):
+  texto_novo = texto.upper()
+  lista_de_palavras = texto_novo.split()
+  nome_final = " ".join(lista_de_palavras)
+  print(nome_final)
+
+
+  só que ao invés de ter o print no final, vai ter:
+
+
+  def escreve_texto_corretamente(texto):
+  texto_novo = texto.upper()
+  lista_de_palavras = texto_novo.split()
+  nome_final = " ".join(lista_de_palavras)
+  return nome_final
+
+  Com esse valor que vai retornar, agora eu posso pegar a variavel antiga que eu criei, chamada escreve_texto_corretamente e dar um novo valor para ela, onde lá embaixo eu deixo ela dentro de uma nova variavel chamada nome_processado. Dentro da nome_processado vai ficar o seguinte:
+
+nome_processado = escreve_texto_corretamente(texto2)
+aloca_alunos_em_sala(nome_processado, salas_de_aula)
+
+{'nome': 'MARIA DAS GRAÇAS SILVA', 'sala': 'Sala 1'}        assim retornando o valor que eu queria, o nome inteiro corrigido.
+
+Só para contexto então, o return serve para retornar um valor posteriormente. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Desafio de resumir emails
+
+Assistindo o video conferi o código que eu fiz e do professor, a diferença é a seguinte. Meu código:
+
+
+def lista_de_emails(lista_de_recebidos):
+  for email in lista_de_recebidos:
+    print(email)
+
+    resumo_email = f"Resuma em uma linha este email: {email}"
+
+    resposta = client.models.generate_content(model="gemini-2.5-flash", contents=resumo_email)
+
+    print(f"Resumo da IA: {resposta.text}")
+    print("-" * 30)
+
+
+    lista_de_emails(corpos_emails)
+
+
+
+    Do professor:
+
+
+
+    def resumidor_de_emails(lista_de_emails):
+      for email in lista_de_emails:
+        resposta = client.models.generate_content(
+          model="gemini-2.5-flash", 
+          contents=f"""Resuma em uma linha este email: {email}"""
+        )
+        print(f"Resumo da IA: {resposta.text"})
+        print("-" * 50)
+
+
+  resumidor_de_emails(corpo_emails)
+
+
+  Uma das diferenças é que o meu pode ter ficado um pouco mais claro. Na verdade os dois codigos ficaram bem bons o dele deve ter ficado até melhor, mas a essencia é a mesma, a criação da função, dos loops. Esse trabalho realmente ficou bem bacana.
+
+
+  O professor ensinou um metodo novo para fazer com que um metodo enumere a lista que o for está percorrendo, então, o codigo vai ficar assim dessa vez:
+
+  def resumidor_de_emails(lista_de_emails):
+      for numero, email in enumerate(lista_de_emails):
+        resposta = client.models.generate_content(
+          model="gemini-2.5-flash", 
+          contents=f"""Resuma em uma linha este email: {email}"""
+        )
+        print(f"e-mail: {numero + 1} {resposta.text"})
+        print("-" * 50)
+
+
+    Esse método é aplicado desta forma, o enumerate vai englobar a lista de emails, e o numero que vai ser antes do email vai dizer qual numero é o email.
+
+    Aí ali embaixo no print, eu vou dar um f string para que o numero apareça e seja somado + 1 para começar a contagem no 1 ao inves do 0 que vem padrão da maquina, e depois eu quero que seja executado a resposta da ia, o resposta.text
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LLM's Oppen Source
+
+
+LLM's são modelos de ia que podem ser rodadas localmente, ao invés de ter que ficar dependente da open.ia ou gemini e importar os dados dessas ia's.
+
+
+Uma empresa que realiza esse tipo de serviço com ia é a groq (alerta pra não confundir com o grok do elon musk kkkkkk)
+
+Criação de API dentro do groq:
+
+1º passo: Clicar em API Keys
+
+2º passo: Create API Keys
+
+3º passo: Dar o nome para a API
+
+4º passo: Salvar a API criada:     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
+
+5º passo: Cadastrar a API no google clouds
+
+
+
+Dentro do groq existem varios modelos de ia para testar, sejam elas ia de resposta, de conversão de audio para texto ou o inverso e etc.. mas na aula que eu to assistindo o professor vai escolher um modelo do chat gpt de 20bilhoes multilingual.
+
+Dentro do modelo da ia escolhida, vai ter o código informando a importação do groq no nosso código, então tem que copiar pra levar até o google clouds
+
+Como a IA que estamos importando, é uma IA de fora, tem que fazer a instalação dela no código para funcionar. Pra fazer isso pelo que o professor ta falando é bem simples, é só fazer o seguinte em cima do código de importação que eu peguei lá no site da groq.
+
+!pip install -q groq      ( o -q não faz parte da instalação, mas pelo que o professor explicou parece ser algum tipo de metodo que faz com que não exiba tantas          mensagens                de   algo que esta gerando mensagens, e nesse caso a instalação do groq vai gerar varias mensagens)
+
+Proximo passo é conectar a chave de API assim como eu fiz antes com o gemini. (Não esquecer do from google.colab import userdata para o userdata funcionar)
+
+esse é o codigo pra conectar a chave api os.environ["GROQ_API_KEY"] = userdata.get('GROQ_API_KEY')
+
+Vou colar o código da ia que foi importada la do groq:
+
+
+from groq import Groq
+
+client = Groq()
+completion = client.chat.completions.create(
+    model="openai/gpt-oss-20b",
+    messages=[
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    temperature=1,
+    max_completion_tokens=8192,
+    top_p=1,
+    reasoning_effort="medium",
+    stream=True,
+    stop=None
+)
+
+for chunk in completion:
+    print(chunk.choices[0].delta.content or "", end="")
+
+
+
+Ali naquela parte que está escrito temperature = 1 .      Essa parte quer dizer o quão criativo foi a minha pergunta para o chat, variando de 0 até 2.
+
+A IA na verdade não responde necessariamente, ela prevê através de tokens e numeros, o que voce pergunta ela esta prevendo através de informações.
+
+Tentar repetir o desafio que eu fiz algumas aulas passadas tentando usar essa ia ao inves da ia do gemini.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Desafio de criar com a minha ia que eu importei, o mesmo desafio que o professor fez na aula passada
+
+
+
+
+def resumidor_de_emails(lista_de_emails):
+  for email in enumerate(lista_de_emails):
+    resposta = f"Resuma em uma frase o que essa pessoa quer no e-mail: {email}"
+
+    completion = client.chat.completions.create(
+    model="openai/gpt-oss-20b",
+    messages=[
+      {
+        "role": "user",
+        "content": resposta
+      }
+    ],
+    temperature=1,
+    max_completion_tokens=8192,
+    top_p=1,
+    reasoning_effort="medium",
+    stream=False,
+    stop=None
+)
+    
+    texto_da_ia = completion.choices[0].message.content
+    
+    print(f"Resumo da IA: {texto_da_ia}")
+    print("-" * 50)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Explorando a leitura e escrita de arquivos
+
+
+Primeira coisa que o professor fez na aula, foi meio que guardar as informações que a gente tava gerando da função com uma lista, então ele fez isso aqui:
+
+def resumidor_de_emails(lista_de_emails):
+  lista_de_resumos = []
+  for email in enumerate(lista_de_emails):
+    resposta = f"Resuma em uma frase o que essa pessoa quer no e-mail: {email}"
+
+    completion = client.chat.completions.create(
+    model="openai/gpt-oss-20b",
+    messages=[
+      {
+        "role": "user",
+        "content": resposta
+      }
+    ],
+    temperature=1,
+    max_completion_tokens=8192,
+    top_p=1,
+    reasoning_effort="medium",
+    stream=False,
+    stop=None
+)
+    
+    texto_da_ia = completion.choices[0].message.content
+    
+    print(f"Resumo da IA: {texto_da_ia}")
+    lista_de_resumos.append(f"Resumo da IA: {texto_da_ia}")
+    print("-" * 50)
+
+return lista_de_resumos
+
+
+
+
+    lista_resumos = resumidor_de_emails(corpo_emails)
+
+
+
+
+
+
+
+
+Então o que foi adicionado agora no código, foi a lista resumo de e-mails, depois ali no print foi a lista_de_resumos.append com o f string dentro desse append (append serve para adicionar um elemento no final de uma lista). Depois que ficou pronto essa parte, aí no final do código vai precisar de um return para a lista_de_resumos, e esse return, retorna na lista_resumos = resumidor_e_emails(corpo_emails). Isso vai fazer com que fique gravado a informação da função.
+
+
+Agora, para salvar essa informação, existe uma função que faz isso, e ela é:
+
+with open("lista_de_resumos.txt", "w" x "a", encoding="utf-8") as arquivo:
+    for resumo in lista_resumos:
+      arquivo.write(resumo + "\n")
+
+
+Então vou por partes, geralmente essa função para gerar arquivos começa com dois elementos ao invés de um só como o for por exemplo. Ela começa com with open e dentro dos parenteses eu escrevo o nome do que eu quero gerar o texto e coloco um .txt   .  depois eu tenho a opção de colocar o w ou o a, e cada um dos dois tem uma diferença que eu vou explicar abaixo.
+
+
+Imagine que o "w" é um "Limpar e Escrever".
+
+Se o arquivo já existe: Ele apaga tudo o que tem dentro e começa a escrever do zero. É como se você pegasse uma folha escrita e passasse um corretivo nela toda antes de começar a nova frase.
+
+Se o arquivo não existe: Ele cria um arquivo novo.
+
+Perigo: Se você usar "w" em um arquivo que tem dados importantes, você vai perder tudo o que estava lá.
+
+
+O "a" (Append - Anexar)
+Imagine que o "a" é um "Continuar Escrevendo".
+
+Se o arquivo já existe: Ele mantém o que está lá e pula para o final da última linha para continuar escrevendo. É como se você pegasse um diário e escrevesse na linha de baixo do que já foi anotado.
+
+Se o arquivo não existe: Ele também cria um arquivo novo, igual ao "w".
+
+Vantagem: É ideal para criar logs ou salvar os resumos dos seus 20 e-mails, um embaixo do outro, sem perder os anteriores.
+
+
+Depois tem um enconding que é o dicionário que eu vou colocar, no caso o padrão geralmente é o UTF-8 
+
+E aí eu posso também dar um apelido para esse arquivo, que no caso vai ser assim que se faz =    as arquivo:
+
+
+Com o método escolhido que no caso foi o w de apagar tudo e criar o conteudo novo, eu preciso fazer um for com a lista de resumos e depois apresentar o que eu quero que faça
+
+arquivo.write(resumo + "\n")   =  O arquivo.write é o comando que manda o texto para dentro do papel (o arquivo).
+
+Sem ele, eu posso até "abrir o caderno" com o with open, mas não escreve nada. No meu código, ele está pegando cada resumo que a IA gerou e "carimbando" no arquivo .txt.
+
+
+eu tambem coloquei um break de linha com o \n para que o arquivo organize cada elemento um embaixo do outro, ficando visualmente melhor para o arquivo txt.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Realizando a leitura de arquivos
+
+
+Antes eu tava realizando a escrita dos arquivos e agora vai ser a leitura, o processo é o mesmo de antes só que agora a diferença é que vai ter umas pequenas mudanças no código usado antes (nao no mesmo código, vai ser um codigo igual mas novo e diferente)
+
+
+nova_lista_de_leitura = []
+
+with open("lista_de_resumos.txt", "r" encoding="utf-8") as arquivo:
+    for linha in arquivo:
+      nova_lista_de_leitura.append(linha.strip())
+
+
+Essa é uma das formas de escrever esse código para ler o arquivo. Ao invés de usar "w" ou "a", é usado o "r" de reading (ler) e aí também tem que destacar que eu criei uma variavel para guardar as informações dessa leitura de arquivo que irá ser feita, no caso a nova_lista_de_leitura. Depois eu usei um for para que a linha dentro do arquivo fosse exibida na tela. É simples.
+
+Um detalhe que deve ser mencionado também é que eu usei o strip para apagar os \n que são exibidos no final das linhas dos textos, esses \n são usados para quebrar as linhas no final dos textos, deixando uma leitura mais agradavel e também separando corretamente as informações. O método strip foi usado para que não fosse exibido esse \n na tela.
+
+Existem outras maneiras de ler esse arquivo, uma delas é:
+
+nova_lista_de_leitura = []
+
+with open("lista_de_resumos.txt", "r", encoding="utf-8") as arquivo:
+  nova_lista_de_leitura = arquivo.readlines()
+
+
+
+em resumo, isso faz com que aquele metodo readlines, leia todas as linhas de uma vez e sem alterar o conteudo. No exemplo lá de cima de leitura de arquivos, eu ja pude alterar para que não fosse exibido o \n por exemplo, ussando um strip, já dessa forma que foi feito agora eu nao consigo fazer a mesma coisa.
+
